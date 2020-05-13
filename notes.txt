@@ -1,0 +1,21 @@
+////FOR PRODUCTION/////////////////////////////////////////
+https://www.valentinog.com/blog/drf/
+
+^ go ovet the part to disable browser API if ever going into production
+//////////////////////////////////////////////////////////
+
+-componentDidUpdate use for when we edit the data grid for our web application
+
+-componentWillUnmount for doing clean up.  maybe for when the form disappears?
+
+Component Structure:
+- App
+ -Datagrid
+  -form
+
+////Future things////////////////////
+1. Different users have different assessiblity
+- How should this be handled?
+- should users being only give access to certain get requests and then react allows editing/deleting according the request recieved
+
+

@@ -1,0 +1,6 @@
+- clean up code: don't send the index to modal content
+- go through React Tutorials?
+
+
+
+
