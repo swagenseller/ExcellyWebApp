@@ -122,13 +122,13 @@ class Table extends React.Component {
     }
 
     // delete row from table call
-    onDelete = (rowIndex, initIndex) => {
+    onDelete = () => {
       // removes from this.state.rows
       const rows = [...this.state.rows];
-      rows.splice(rowIndex, 1); //
+      rows.splice(this.state.rowIndex, 1); //
       // removes from initialRows
       const iRows = [...this.state.initRows];  // rows
-      iRows.splice(initIndex, 1)
+      iRows.splice(this.state.initIndex, 1)
       this.setState({ 
         rows: rows, 
         initRows: iRows,
@@ -136,7 +136,7 @@ class Table extends React.Component {
       this.onResponse();
     }
 
-    onEdit = (rowIndex, newRow) => {
+    onEdit = (newRow) => {
       const newRows = [...this.state.rows];
 
       newRows[this.state.rowIndex] = newRow;

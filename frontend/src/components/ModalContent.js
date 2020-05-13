@@ -62,7 +62,7 @@ class ModalContent extends Component {
 		const url = '' + data + '/delete/';
 		axios.delete(url, {removed: this.props.selectRow})
 			.then( (response) => {
-				this.props.onDelete(this.props.rowIndex, this.props.initIndex); 
+				this.props.onDelete(); 
 			});
 	
 	}
@@ -74,14 +74,14 @@ class ModalContent extends Component {
 		const url = '' + data + '/put/';
 		axios.put(url, this.state.selectRow)
 			.then( (response) => {
-				this.props.onEdit(this.props.rowIndex, response.data)
+				this.props.onEdit(response.data)
 			})
 			.catch(function (error) {
 				console.log(error);
 			})
 
 	}
-	
+
 	add = () => {
 		const url = 'add/';
 		axios.post(url, this.state.selectRow)
