@@ -187,8 +187,6 @@ class Table extends React.Component {
               isOpen={this.state.isOpen}
               onResponse={this.onResponse}
               selectRow={this.state.selectRow}  
-              rowIndex={this.state.rowIndex}
-              initIndex={this.state.initIndex}
               onDelete={this.onDelete}
               title={this.state.title}
               onEdit={this.onEdit}
