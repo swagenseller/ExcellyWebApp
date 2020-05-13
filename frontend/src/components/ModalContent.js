@@ -60,8 +60,11 @@ class ModalContent extends Component {
 	delete = () =>{
 		const data = this.props.selectRow.id //{ id: this.props.selectRow.id };
 		const url = '' + data + '/delete/';
-		axios.delete(url, {removed: this.props.selectRow});
-		this.props.onDelete(this.props.rowIndex, this.props.initIndex); 
+		axios.delete(url, {removed: this.props.selectRow})
+			.then( (response) => {
+				this.props.onDelete(this.props.rowIndex, this.props.initIndex); 
+			});
+	
 	}
 
 	// tells parent App.js to edit the row
@@ -77,9 +80,8 @@ class ModalContent extends Component {
 				console.log(error);
 			})
 
-		//const newRow = Object.create(this.state.selectRow);
-		//this.props.onEdit(this.props.rowIndex, newRow);
 	}
+	
 	add = () => {
 		const url = 'add/';
 		axios.post(url, this.state.selectRow)
