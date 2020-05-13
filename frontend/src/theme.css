@@ -1,0 +1,10 @@
+.controls {
+    border: 1px solid;
+    border-radius: 10%;
+    padding: 0px 2px;
+    margin: 1px;
+  }
+.delete {
+    background-color: #e6291c;
+    color: white;
+}
