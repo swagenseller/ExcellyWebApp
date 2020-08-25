@@ -76,7 +76,7 @@ class ModalContent extends Component {
 			.then( (response) => {
 				this.props.onEdit(response.data)
 			})
-			.catch(function (error) {
+			.catch(function (error) { // refactor to tell user what is wrong
 				console.log(error);
 			})
 
