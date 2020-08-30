@@ -56,39 +56,18 @@ class ModalContent extends Component {
 	};
 
 	delete = () => {
-		const data = this.props.selectRow.id; //{ id: this.props.selectRow.id };
-		const url = "" + data + "/delete/";
-		axios.delete(url, { removed: this.props.selectRow }).then((response) => {
-			this.props.onDelete();
-		});
+		this.props.onDelete();
 	};
 
 	// tells parent App.js to edit the row
 	// refactor to enter send a request when promise is successful
 	edit = () => {
-		const data = this.props.selectRow.id; //{ id: this.props.selectRow.id };
-		const url = "" + data + "/put/";
-		axios
-			.put(url, this.state.selectRow)
-			.then((response) => {
-				this.props.onEdit(response.data);
-			})
-			.catch(function (error) {
-				console.log(error);
-			});
+		const updatedRow = Object.assign({}, this.state.selectRow);
+		this.props.onEdit(updatedRow);
 	};
 
 	add = () => {
-		const url = "add/";
-		axios
-			.post(url, this.state.selectRow)
-			.then((response) => {
-				this.props.onAdd(response.data);
-			})
-			.catch(function (error) {
-				// refactor to tell user what is wrong
-				console.log(error);
-			});
+		this.props.onAdd(this.state.selectRow);
 	};
 
 	render() {
