@@ -35,7 +35,7 @@ class Table extends React.Component {
 	getCellActions = (column, row) => {
 		const cellActions = [
 			{
-				icon: <span className="text-white bg-primary rounded">Edit</span>,
+				icon: <span className="material-icons">edit</span>, //<span className="text-white bg-primary rounded">Edit</span>,
 				callback: () => {
 					const index = this.state.rows.indexOf(row);
 					//console.log("index is: " + index)
@@ -50,7 +50,7 @@ class Table extends React.Component {
 				},
 			},
 			{
-				icon: <span className="text-white bg-danger rounded"> Delete </span>,
+				icon: <span className="material-icons delete">delete</span>, //<span className="text-white bg-danger rounded"> Delete </span>,
 				callback: () => {
 					const index = this.state.rows.indexOf(row);
 					//console.log("index is: " + index)

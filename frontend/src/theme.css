@@ -1,10 +1,15 @@
 .controls {
-    border: 1px solid;
-    border-radius: 10%;
-    padding: 0px 2px;
-    margin: 1px;
-  }
+	border: 1px solid;
+	border-radius: 10%;
+	padding: 0px 2px;
+	margin: 1px;
+}
 .delete {
-    background-color: #e6291c;
-    color: white;
+	color: #e6291c;
+	/*background-color: white;*/
+}
+
+.edit {
+	color: #007bff;
+	/*background-color: white;*/
 }
