@@ -25,27 +25,6 @@ class App extends Component {
 			data: initRows,
 		};
 	}
-	// requests the data from our database and sets the state to an object with it and
-	// a property loaded = true
-	componentDidMount() {
-		/*fetch("api/petfood")
-      .then(response => {
-        if (response.status > 400) {
-          return this.setState(() => {
-            return { placeholder: "Something went wrong!" };
-          });
-        }
-        return response.json();
-      })
-      .then(data => {
-        this.setState(() => {
-          return {
-            data,
-            loaded: true
-          };
-        });
-      }); */
-	}
 
 	render() {
 		//return (
