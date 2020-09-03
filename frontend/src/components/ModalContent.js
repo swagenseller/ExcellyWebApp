@@ -22,6 +22,7 @@ class ModalContent extends Component {
 		this.setTitle();
 	}
 
+	// change this so that it only changes after the submit
 	handleChange(event) {
 		const { selectRow } = { ...this.state };
 		const currentState = selectRow;

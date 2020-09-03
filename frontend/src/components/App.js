@@ -16,6 +16,13 @@ const initRows = [
 	{ name: "carrots", brand: "N/A", pet: "rabbits", price: 2 },
 	{ name: "Shrimpy Shrimp", brand: "Venus", pet: "cats", price: 6 },
 	{ name: "sea flakes", brand: "Krill", pet: "fish", price: 3 },
+	{ name: "Furry Foodie", brand: "Venus", pet: "cast", price: 8 },
+	{ name: "mice", brand: "PetCon", pet: "snakes", price: 2 },
+	{ name: "crickets", brand: "Petcon", pet: "lizards", price: 3 },
+	{ name: "crickets", brand: "Petcon", pet: "lizards", price: 3 },
+	{ name: "crickets", brand: "Petcon", pet: "lizards", price: 3 },
+	{ name: "crickets", brand: "Petcon", pet: "lizards", price: 3 },
+	{ name: "crickets", brand: "Petcon", pet: "lizards", price: 3 },
 ];
 
 class App extends Component {

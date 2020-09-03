@@ -6,7 +6,7 @@ const ModBody = (props) => {
 	let display = null;
 	if (props.title === "edit" || props.title === "add") {
 		display = (
-			<ul>
+			<ul className="list">
 				<li>
 					<span>Name:</span>
 					<input
