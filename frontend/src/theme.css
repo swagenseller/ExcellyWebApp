@@ -13,7 +13,9 @@
 	color: #007bff;
 	/*background-color: white;*/
 }
-
+.add {
+	color: #28a745;
+}
 .list {
 	list-style-type: none;
 }

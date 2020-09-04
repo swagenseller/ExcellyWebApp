@@ -1,12 +1,13 @@
 import React from "react";
 import { Table, Modal } from "react-bootstrap";
+import ModForm from "./ModForm";
 
 // displays the Modal.body elements based on props.title
 const ModBody = (props) => {
 	let display = null;
 	if (props.title === "edit" || props.title === "add") {
 		display = (
-			<ul className="list">
+			/*<ul className="list">
 				<li>
 					<span>Name:</span>
 					<input
@@ -52,7 +53,8 @@ const ModBody = (props) => {
 						onChange={props.handleChange}
 					/>
 				</li>
-			</ul>
+		</ul> */
+			<ModForm></ModForm>
 		);
 	} else if (props.title === "delete") {
 		display = (

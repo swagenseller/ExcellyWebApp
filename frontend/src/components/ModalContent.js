@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { Button, Modal, Table } from "react-bootstrap";
 import Footer from "./Footer";
 import ModBody from "./ModBody";
-import axios from "axios";
+import "./../theme.css";
 
 // will need to refactor this
 class ModalContent extends Component {
@@ -12,6 +12,7 @@ class ModalContent extends Component {
 		//this.setTitle = this.setTitle.bind(this);
 		this.state = {
 			title: "",
+			titleColor: "",
 			message: "",
 			selectRow: this.props.selectRow,
 		};
@@ -37,16 +38,19 @@ class ModalContent extends Component {
 		if (this.props.title === "edit") {
 			this.setState({
 				title: "Edit Row",
+				titleColor: "edit",
 				message: null,
 			});
 		} else if (this.props.title === "delete") {
 			this.setState({
 				title: "Delete Row",
+				titleColor: "delete",
 				message: "Are you sure you want to delete this row?",
 			});
 		} else if (this.props.title === "add") {
 			this.setState({
 				title: "Add Row",
+				titleColor: "add",
 				message: null,
 			});
 		}
@@ -76,7 +80,9 @@ class ModalContent extends Component {
 			<aside>
 				<Modal show={this.props.isOpen} onHide={this.onClose}>
 					<Modal.Header variant="danger" closeButton onClick={this.onClose}>
-						<Modal.Title>{this.state.title}</Modal.Title>
+						<Modal.Title className={this.state.titleColor}>
+							{this.state.title}
+						</Modal.Title>
 					</Modal.Header>
 
 					<ModBody
