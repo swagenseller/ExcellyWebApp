@@ -9,7 +9,11 @@ const ModForm = (props) => {
 					Name
 				</Form.Label>
 				<Col>
-					<Form.Control size="sm" type="text" placeholder="" />
+					<Form.Control
+						size="sm"
+						type="text"
+						placeholder={props.selectRow.name}
+					/>
 				</Col>
 			</Form.Row>
 			<Form.Row>
@@ -17,7 +21,11 @@ const ModForm = (props) => {
 					Brand
 				</Form.Label>
 				<Col>
-					<Form.Control size="sm" type="text" placeholder="" />
+					<Form.Control
+						size="sm"
+						type="text"
+						placeholder={props.selectRow.brand}
+					/>
 				</Col>
 			</Form.Row>
 			<Form.Row>
@@ -25,7 +33,11 @@ const ModForm = (props) => {
 					Food For
 				</Form.Label>
 				<Col>
-					<Form.Control size="sm" type="text" placeholder="" />
+					<Form.Control
+						size="sm"
+						type="text"
+						placeholder={props.selectRow.pet}
+					/>
 				</Col>
 			</Form.Row>
 
@@ -34,7 +46,11 @@ const ModForm = (props) => {
 					Price
 				</Form.Label>
 				<Col>
-					<Form.Control size="sm" type="number" placeholder="" />
+					<Form.Control
+						size="sm"
+						type="number"
+						placeholder={props.selectRow.price}
+					/>
 				</Col>
 			</Form.Row>
 		</Form.Group>

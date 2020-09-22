@@ -1,10 +1,35 @@
 import React from "react";
-import { Table, Modal } from "react-bootstrap";
-import ModForm from "./ModForm";
+import { Table, Modal, Button } from "react-bootstrap";
+import { Form, Col } from "react-bootstrap";
+//import ModForm from "./ModForm";
 
 // displays the Modal.body elements based on props.title
 const ModBody = (props) => {
 	let display = null;
+	const modRow = Object.assign({}, props.selectRow);
+
+	const handleChange = (event) => {
+		//const { selectRow } = { ...modRow };
+		//const currentState = selectRow;
+
+		const { name, value } = event.target;
+		modRow[name] = value;
+
+		//this.setState({ selectRow: currentState });
+	};
+	const handleSubmit = () => {
+		props.update(modRow);
+	};
+
+	/*const handleSubmit = (event) => {
+		const form = event.currentTarget;
+		if (form.checkValidity() === false) {
+		  event.preventDefault();
+		  event.stopPropagation();
+		}
+		
+		setValidated(true);
+	  }; */
 	if (props.title === "edit" || props.title === "add") {
 		display = (
 			/*<ul className="list">
@@ -54,7 +79,65 @@ const ModBody = (props) => {
 					/>
 				</li>
 		</ul> */
-			<ModForm></ModForm>
+			<Form.Group>
+				<Form.Row>
+					<Form.Label xs="auto" column="sm" lg={2}>
+						Name
+					</Form.Label>
+					<Col>
+						<Form.Control
+							name="name"
+							size="sm"
+							type="text"
+							placeholder={props.selectRow.name}
+							onChange={handleChange}
+						/>
+					</Col>
+				</Form.Row>
+				<Form.Row>
+					<Form.Label xs="auto" column="sm" lg={2}>
+						Brand
+					</Form.Label>
+					<Col>
+						<Form.Control
+							name="brand"
+							size="sm"
+							type="text"
+							placeholder={props.selectRow.brand}
+							onChange={handleChange}
+						/>
+					</Col>
+				</Form.Row>
+				<Form.Row>
+					<Form.Label xs="auto" column="sm" lg={2}>
+						Food For
+					</Form.Label>
+					<Col>
+						<Form.Control
+							name="pet"
+							size="sm"
+							type="text"
+							placeholder={props.selectRow.pet}
+							onChange={handleChange}
+						/>
+					</Col>
+				</Form.Row>
+
+				<Form.Row>
+					<Form.Label xs="auto" column="sm" lg={2}>
+						Price
+					</Form.Label>
+					<Col>
+						<Form.Control
+							name="price"
+							size="sm"
+							type="number"
+							placeholder={props.selectRow.price}
+							onChange={handleChange}
+						/>
+					</Col>
+				</Form.Row>
+			</Form.Group>
 		);
 	} else if (props.title === "delete") {
 		display = (
@@ -80,10 +163,20 @@ const ModBody = (props) => {
 	}
 
 	return (
-		<Modal.Body>
-			<p>{props.message}</p>
-			{display}
-		</Modal.Body>
+		<div>
+			<Modal.Body>
+				<p>{props.message}</p>
+				{display}
+			</Modal.Body>
+			<Modal.Footer>
+				<Button variant="secondary" onClick={props.onClose}>
+					cancel
+				</Button>
+				<Button variant="primary" onClick={handleSubmit}>
+					{props.title}
+				</Button>
+			</Modal.Footer>
+		</div>
 	);
 };
 

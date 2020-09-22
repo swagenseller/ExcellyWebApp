@@ -75,6 +75,18 @@ class ModalContent extends Component {
 		this.props.onAdd(this.state.selectRow);
 	};
 
+	update = (modRow) => {
+		if (this.props.title === "edit") {
+			//const updatedRow = Object.assign({}, this.state.selectRow);
+
+			this.props.onEdit(modRow);
+		} else if (this.props.title === "add") {
+			this.props.onAdd(modRow); //(this.state.selectRow);
+		} else if (this.props.title === "delete") {
+			this.props.onDelete();
+		}
+	};
+
 	render() {
 		return ReactDOM.createPortal(
 			<aside>
@@ -88,17 +100,19 @@ class ModalContent extends Component {
 					<ModBody
 						title={this.props.title}
 						selectRow={this.state.selectRow}
-						handleChange={this.handleChange}
+						/*handleChange={this.handleChange} */
 						message={this.state.message}
+						onClose={this.onClose}
+						update={this.update}
 					/>
-
+					{/*
 					<Footer
 						onClose={this.onClose}
 						edit={this.edit}
 						delete={this.delete}
 						add={this.add}
 						title={this.props.title}
-					/>
+		/>  */}
 				</Modal>
 			</aside>,
 			document.body
