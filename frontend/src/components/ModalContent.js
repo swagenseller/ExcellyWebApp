@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import { Button, Modal, Table } from "react-bootstrap";
-import Footer from "./Footer";
+import { Modal } from "react-bootstrap";
 import ModBody from "./ModBody";
 import "./../theme.css";
 
