@@ -1,7 +1,6 @@
 import React from "react";
 import { Table, Modal, Button } from "react-bootstrap";
 import { Form, Col } from "react-bootstrap";
-//import ModForm from "./ModForm";
 
 // displays the Modal.body elements based on props.title
 const ModBody = (props) => {
@@ -9,76 +8,15 @@ const ModBody = (props) => {
 	const modRow = Object.assign({}, props.selectRow);
 
 	const handleChange = (event) => {
-		//const { selectRow } = { ...modRow };
-		//const currentState = selectRow;
-
 		const { name, value } = event.target;
 		modRow[name] = value;
-
-		//this.setState({ selectRow: currentState });
 	};
 	const handleSubmit = () => {
 		props.update(modRow);
 	};
 
-	/*const handleSubmit = (event) => {
-		const form = event.currentTarget;
-		if (form.checkValidity() === false) {
-		  event.preventDefault();
-		  event.stopPropagation();
-		}
-		
-		setValidated(true);
-	  }; */
 	if (props.title === "edit" || props.title === "add") {
 		display = (
-			/*<ul className="list">
-				<li>
-					<span>Name:</span>
-					<input
-						type="text"
-						maxLength="100"
-						minLength="1"
-						name="name"
-						value={props.selectRow.name}
-						onChange={props.handleChange}
-					/>
-				</li>
-				<li>
-					<span>Brand:</span>
-					<input
-						type="text"
-						maxLength="100"
-						minLength="1"
-						name="brand"
-						value={props.selectRow.brand}
-						onChange={props.handleChange}
-					/>
-				</li>
-				<li>
-					<span>Pet: </span>
-					<input
-						type="text"
-						maxLength="10"
-						minLength="1"
-						name="pet"
-						value={props.selectRow.pet}
-						onChange={props.handleChange}
-					/>
-				</li>
-				<li>
-					<span>Price:</span>
-					<input
-						type="number"
-						step="0.01"
-						max="999.99"
-						min="0"
-						name="price"
-						value={props.selectRow.price}
-						onChange={props.handleChange}
-					/>
-				</li>
-		</ul> */
 			<Form.Group>
 				<Form.Row>
 					<Form.Label xs="auto" column="sm" lg={2}>

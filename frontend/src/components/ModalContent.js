@@ -23,15 +23,6 @@ class ModalContent extends Component {
 		this.setTitle();
 	}
 
-	// change this so that it only changes after the submit
-	handleChange(event) {
-		const { selectRow } = { ...this.state };
-		const currentState = selectRow;
-		const { name, value } = event.target;
-		currentState[name] = value;
-		this.setState({ selectRow: currentState });
-	}
-
 	// sets the state for Modal depending on whether the user clicked
 	// edit or delete button
 	setTitle() {
@@ -77,11 +68,9 @@ class ModalContent extends Component {
 
 	update = (modRow) => {
 		if (this.props.title === "edit") {
-			//const updatedRow = Object.assign({}, this.state.selectRow);
-
 			this.props.onEdit(modRow);
 		} else if (this.props.title === "add") {
-			this.props.onAdd(modRow); //(this.state.selectRow);
+			this.props.onAdd(modRow);
 		} else if (this.props.title === "delete") {
 			this.props.onDelete();
 		}
@@ -100,19 +89,10 @@ class ModalContent extends Component {
 					<ModBody
 						title={this.props.title}
 						selectRow={this.state.selectRow}
-						/*handleChange={this.handleChange} */
 						message={this.state.message}
 						onClose={this.onClose}
 						update={this.update}
 					/>
-					{/*
-					<Footer
-						onClose={this.onClose}
-						edit={this.edit}
-						delete={this.delete}
-						add={this.add}
-						title={this.props.title}
-		/>  */}
 				</Modal>
 			</aside>,
 			document.body
