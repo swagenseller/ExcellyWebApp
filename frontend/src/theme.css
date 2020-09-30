@@ -4,14 +4,12 @@
 	padding: 0px 2px;
 	margin: 1px;
 }
+
 .delete {
 	color: #e6291c;
-	/*background-color: white;*/
 }
-
 .edit {
 	color: #007bff;
-	/*background-color: white;*/
 }
 .add {
 	color: #28a745;

@@ -7,6 +7,17 @@ const ModBody = (props) => {
 	let display = null;
 	const modRow = Object.assign({}, props.selectRow);
 
+	const btnVariant = () => {
+		if (props.title === "add") {
+			return "success";
+		} else if (props.title === "delete") {
+			return "danger";
+		} else if (props.title === "edit") {
+			return "primary";
+		}
+		return "";
+	};
+
 	const handleChange = (event) => {
 		const { name, value } = event.target;
 		modRow[name] = value;
@@ -110,7 +121,7 @@ const ModBody = (props) => {
 				<Button variant="secondary" onClick={props.onClose}>
 					cancel
 				</Button>
-				<Button variant="primary" onClick={handleSubmit}>
+				<Button variant={props.btnVariant} onClick={handleSubmit}>
 					{props.title}
 				</Button>
 			</Modal.Footer>

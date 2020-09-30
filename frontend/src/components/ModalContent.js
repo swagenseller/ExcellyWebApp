@@ -11,11 +11,11 @@ class ModalContent extends Component {
 		//this.setTitle = this.setTitle.bind(this);
 		this.state = {
 			title: "",
-			titleColor: "",
+			btnVariant: "",
+			btnColor: "",
 			message: "",
 			selectRow: this.props.selectRow,
 		};
-		this.handleChange = this.handleChange.bind(this);
 	}
 
 	componentDidMount() {
@@ -28,19 +28,22 @@ class ModalContent extends Component {
 		if (this.props.title === "edit") {
 			this.setState({
 				title: "Edit Row",
-				titleColor: "edit",
+				btnVariant: "primary",
+				btnColor: "edit",
 				message: null,
 			});
 		} else if (this.props.title === "delete") {
 			this.setState({
 				title: "Delete Row",
-				titleColor: "delete",
+				btnVariant: "danger",
+				btnColor: "delete",
 				message: "Are you sure you want to delete this row?",
 			});
 		} else if (this.props.title === "add") {
 			this.setState({
 				title: "Add Row",
-				titleColor: "add",
+				btnVariant: "success",
+				btnColor: "add",
 				message: null,
 			});
 		}
@@ -79,18 +82,19 @@ class ModalContent extends Component {
 		return ReactDOM.createPortal(
 			<aside>
 				<Modal show={this.props.isOpen} onHide={this.onClose}>
-					<Modal.Header variant="danger" closeButton onClick={this.onClose}>
-						<Modal.Title className={this.state.titleColor}>
+					<Modal.Header closeButton onClick={this.onClose}>
+						<Modal.Title className={this.state.btnColor}>
 							{this.state.title}
 						</Modal.Title>
 					</Modal.Header>
 
 					<ModBody
-						title={this.props.title}
+						title={this.state.btnColor}
 						selectRow={this.state.selectRow}
 						message={this.state.message}
 						onClose={this.onClose}
 						update={this.update}
+						btnVariant={this.state.btnVariant}
 					/>
 				</Modal>
 			</aside>,
