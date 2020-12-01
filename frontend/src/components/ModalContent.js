@@ -82,14 +82,16 @@ class ModalContent extends Component {
 		return ReactDOM.createPortal(
 			<aside>
 				<Modal show={this.props.isOpen} onHide={this.onClose}>
-					<Modal.Header closeButton onClick={this.onClose}>
-						<Modal.Title className={this.state.btnColor}>
-							{this.state.title}
-						</Modal.Title>
+					<Modal.Header
+						className={this.state.btnColor}
+						closeButton
+						onClick={this.onClose}
+					>
+						<Modal.Title>{this.state.title}</Modal.Title>
 					</Modal.Header>
 
 					<ModBody
-						title={this.state.btnColor}
+						title={this.props.title}
 						selectRow={this.state.selectRow}
 						message={this.state.message}
 						onClose={this.onClose}

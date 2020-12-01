@@ -4,15 +4,21 @@
 	padding: 0px 2px;
 	margin: 1px;
 }
-
-.delete {
+.trash-bin {
 	color: #e6291c;
 }
+
+.delete {
+	color: white;
+	background-color: #e6291c;
+}
 .edit {
-	color: #007bff;
+	color: white;
+	background-color: #007bff;
 }
 .add {
-	color: #28a745;
+	color: white;
+	background-color: #28a745;
 }
 .list {
 	list-style-type: none;

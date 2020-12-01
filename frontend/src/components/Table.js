@@ -50,7 +50,7 @@ class Table extends React.Component {
 				},
 			},
 			{
-				icon: <span className="material-icons delete">delete</span>, //<span className="text-white bg-danger rounded"> Delete </span>,
+				icon: <span className="material-icons trash-bin">delete</span>, //<span className="text-white bg-danger rounded"> Delete </span>,
 				callback: () => {
 					const index = this.state.rows.indexOf(row);
 					//console.log("index is: " + index)
