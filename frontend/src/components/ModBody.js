@@ -3,7 +3,6 @@ import { Table, Modal, Button } from "react-bootstrap";
 import { Form, Col } from "react-bootstrap";
 import "./../modalBody.css";
 
-let inputClass = "";
 // class version
 class ModBody extends Component {
 	constructor(props) {
@@ -14,6 +13,9 @@ class ModBody extends Component {
 			nameError: "",
 			brandError: "",
 			priceError: "",
+			nameStyle: "",
+			brandStyle: "",
+			priceStyle: "",
 		};
 	}
 	clearErrors() {
@@ -26,45 +28,57 @@ class ModBody extends Component {
 		let brandError = "";
 		let petError = "";
 		let priceError = "";
+		let nameStyle = "";
+		let brandStyle = "";
+		let priceStyle = "";
 
 		//  validate name
 		if (this.state.modRow.name.length < 1) {
 			nameError = "Name can not be empty";
-			//errors.nameError = "Name can not be empty";
-			//setErrors((errors.nameError = "Name can not be empty"));
+			nameStyle = "error-input";
 		} else if (this.state.modRow.name.length > 20) {
 			nameError = "Name must be less than 20 characters";
-			//errors.nameError = "Name must be less than 20 characters";
-			//setErrors((errors.nameError = "Name must be less than 20 characters"));
+			nameStyle = "error-input";
 		}
-		/*
+
 		// validate Brand
-		if (modRow.brand.length < 1) {
-			errors.brandError = "Name can not be empty";
-		} else if (modRow.brand.length > 20) {
-			errors.brandError = "Name must be less than 20 characters";
+		if (this.state.modRow.brand.length < 1) {
+			brandError = "Brand name can not be empty";
+			brandStyle = "error-input";
+		} else if (this.state.modRow.brand.length > 20) {
+			brandError = " Brand Name must be less than 20 characters";
+			brandStyle = "error-input";
 		}
 
 		// validate price
-		if (isNaN(modRow.price)) {
-			errors.priceError = "Price is not a number";
-		} else if (modRow.price <= 0) {
-			errors.priceError = "Price must be greater than 0";
-		} else if (modRow.price > 1000) {
-			errors.priceError = "Price must be less than 1000";
+		if (isNaN(this.state.modRow.price)) {
+			priceError = "Price is not a number";
+			priceStyle = "error-input";
+		} else if (this.state.modRow.price <= 0) {
+			priceError = "Price must be greater than 0";
+			priceStyle = "error-input";
+		} else if (this.state.modRow.price > 1000) {
+			priceError = "Price must be less than 1000";
+			priceStyle = "error-input";
 		}
 
-		for (let e in errors) {
+		/*for (let e in errors) {
 			if (errors[e]) {
 				console.log(errors[e]);
 				setErrors((errors.nameError = nameError));
 				return false;
 			}
-		}
-		
-		return true; */
-		if (nameError != "") {
-			this.setState({ nameError });
+		} */
+
+		if (nameError || brandError || priceError) {
+			this.setState({
+				nameError,
+				brandError,
+				priceError,
+				nameStyle,
+				brandStyle,
+				priceStyle,
+			});
 			return false;
 		}
 		return true;
@@ -78,14 +92,11 @@ class ModBody extends Component {
 		//modRow[name] = value;
 	};
 	handleSubmit = (event) => {
+		inputClass = "";
 		event.preventDefault();
 		const isValid = this.validate();
 		if (isValid) {
 			this.props.update(this.state.modRow);
-		} else {
-			console.log("is there an error?");
-			// don't close the modal
-			inputClass = "error-input";
 		}
 		//props.update(modRow);
 	};
@@ -104,7 +115,7 @@ class ModBody extends Component {
 								type="text"
 								placeholder={this.props.selectRow.name}
 								onChange={this.handleChange}
-								className={inputClass}
+								className={this.state.nameStyle}
 							/>
 							<div className="error-msg">{this.state.nameError}</div>
 						</Col>
@@ -120,7 +131,9 @@ class ModBody extends Component {
 								type="text"
 								placeholder={this.props.selectRow.brand}
 								onChange={this.handleChange}
+								className={this.state.brandStyle}
 							/>
+							<div className="error-msg">{this.state.brandError}</div>
 						</Col>
 					</Form.Row>
 					<Form.Row>
@@ -149,8 +162,9 @@ class ModBody extends Component {
 								type="number"
 								placeholder={this.props.selectRow.price}
 								onChange={this.handleChange}
+								className={this.state.priceStyle}
 							/>
-							<div>{this.errorPrice}</div>
+							<div className="error-msg">{this.state.priceError}</div>
 						</Col>
 					</Form.Row>
 				</Form.Group>
